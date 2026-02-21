@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sob-python"
+version = "1.0.0"
+description = "Python SDK for the State of Biz (SOB) central bank intelligence API"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "jubelprosa", email = "dev@state-of.biz" },
+]
+keywords = ["central-bank", "api", "sdk", "x402", "fintech", "rag", "langchain", "llamaindex"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "httpx>=0.25.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+langchain = ["langchain-core>=0.2.0"]
+llamaindex = ["llama-index-core>=0.10.0"]
+all = ["sob-python[langchain,llamaindex]"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.4", "sob-python[all]"]
+
+[project.urls]
+Homepage = "https://state-of.biz"
+Documentation = "https://state-of.biz/api/docs"
+Repository = "https://github.com/jubelprosa/sob-python"
+Issues = "https://github.com/jubelprosa/sob-python/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sob"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
