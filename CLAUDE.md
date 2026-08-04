@@ -85,7 +85,8 @@ feat|fix|docs|refactor|chore(scope): Beschreibung
 | Debugging | `systematic-debugging` | VOR der Analyse |
 | Feature-Planung | `brainstorming` → `writing-plans` | VOR dem Code |
 | Tests schreiben | `test-driven-development` | VOR dem Implementierungscode |
-| Release | `verification-before-completion` | VOR dem PyPI-Upload |
+
+`verification-before-completion` steht hier bewusst **nicht** mehr: Opus 5 prüft die eigene Arbeit unaufgefordert, eine zusätzlich angeordnete Prüfrunde kostet Tokens ohne Qualitätsgewinn. Entfernt ist die Prüf-*Runde*, nicht die Prüfung — Tests und der Pre-Upload-Check vor PyPI bleiben unverändert. Grundregel: `~/.claude/CLAUDE.md` → „Skills und Subagenten" (2026-08-04).
 
 ---
 
